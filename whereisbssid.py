@@ -8,7 +8,7 @@ import json
 import re
 
 # Version 0.1
-# Coded by: Adrián Fernández --> (@adrianfa5)
+# Writed by: Adrián Fernández --> (@adrianfa5)
 # Contact email: adrifarnal@gmail.com
 
 
