@@ -7,8 +7,8 @@ import requests
 import json
 import re
 
-# Version 0.1
-# Writed by: Adrián Fernández --> (@adrianfa5)
+# Version 0.2
+# Coded by: Adrián Fernández --> (@adrianfa5)
 # Contact email: adrifarnal@gmail.com
 
 
@@ -79,7 +79,7 @@ else:
 		
 		print console_colors.OKBLUE+" Sending request..."+ console_colors.ENDC
 		#Hacer peticion a la API // Make API request
-		requ = requests.get("https://api.mylnikov.org/geolocation/wifi?v="+ver+"&data=open&bssid="+mac)		
+		requ = requests.get("https://api.mylnikov.org/geolocation/wifi?v="+ver+"&bssid="+mac)		
 		resp = requ.content
 		json_pars = json.loads(resp)
 		#Comprobar si la respuesta HTTP es 200 OK // Check if the HTTP response is 200 OK
