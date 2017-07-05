@@ -7,8 +7,8 @@ import requests
 import json
 import re
 
-# Version 0.2
-# Coded by: Adrián Fernández --> (@adrianfa5)
+# Version 0.2.1
+# Written by: Adrián Fernández --> (@adrianfa5)
 # Contact email: adrifarnal@gmail.com
 
 
@@ -33,17 +33,17 @@ def title_ascii():
 	print console_colors.GREEN+"\  /\  / | | |  __/ | |  __/| |\__ \ |_/ //\__/ /\__/ /_| |_| |/ / "+console_colors.ENDC 
 	print console_colors.GREEN+" \/  \/|_| |_|\___|_|  \___\___/___|____/ \____/\____/ \___/|___/ "+console_colors.ENDC 
 	print console_colors.GREEN+" ---------------------------------------------------------------"+console_colors.ENDC 
-	print console_colors.LIGHTBLUE+"			Writed by Adrián Fernández-(@adrianfa5)"+console_colors.ENDC 
+	print console_colors.LIGHTBLUE+"			Written by Adrián Fernández-(@adrianfa5)"+console_colors.ENDC 
 	print ""	
-	print " [i] The BSSID Geolocation it's based in a database with about 34M + of records."
-	print " [i] Some BSSID's may not be on the database"
+	print " [i] The BSSID Geolocation is based in a database with about 34M + of records."
+	print " [i] Some BSSIDs may not be on the database"
 
 title_ascii()
 
 if (len(sys.argv) <= 1) or ("--h" in sys.argv) or ("-h" in sys.argv) :
 	print console_colors.WARNING+"    [!] Options to use:"+console_colors.ENDC
 	print console_colors.WARNING+"    	  --h Show this help menu"+console_colors.ENDC
-	print console_colors.WARNING+"    	  --M BSSID (The Mac Address From the Acces Point)"+console_colors.ENDC
+	print console_colors.WARNING+"    	  --M BSSID (The MAC Address From the Access Point)"+console_colors.ENDC
 	print console_colors.WARNING+"    	  --L Show Location"+console_colors.ENDC
 	print console_colors.WARNING+"    [!] Examples:"+console_colors.ENDC
 	print console_colors.WARNING+"    	  # python whereisbssid.py --M 00:11:22:DD:EE:FF"+console_colors.ENDC
@@ -57,7 +57,7 @@ else:
 		if (re.match(regexp, sys.argv[2])) and (len(sys.argv[2]) == 17):
 			mac = sys.argv[2]			
 		else:
-			print console_colors.RED+" [!] Error, you have to put the argument --M and BSSID"+ console_colors.ENDC
+			print console_colors.RED+" [!] Error, you have to put the argument --M and the BSSID"+ console_colors.ENDC
 			quit()	
 	except:
 		print console_colors.RED+" [!] Invalid Address. Put a valid BSSID next to --M"+ console_colors.ENDC
@@ -69,7 +69,7 @@ else:
 			print console_colors.OKBLUE+" [-] BSSID --> "+ mac + console_colors.ENDC
 		else:
 			print ""		
-			print console_colors.RED+" [!] Error, you have to put the argument --M and BSSID"
+			print console_colors.RED+" [!] Error, you have to put the argument --M and the BSSID"
 			quit()
 		if ("--L" in sys.argv):
 			ver = "1.2"
