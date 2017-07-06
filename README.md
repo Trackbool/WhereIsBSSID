@@ -4,6 +4,7 @@ Script hecho en Python, que muestra de forma rápida la geolocalización del BSS
 
 Script made with Python, it shows the geolocation of a BSSID from an AP, using an API
 
+
 -----
 
  Adrián Fernández (adrianfa5)
@@ -11,6 +12,9 @@ Script made with Python, it shows the geolocation of a BSSID from an AP, using a
  GitHub: https://github.com/Trackbool
 
 
+--
+Wifi Geolocation - Access point geolocation - BSSID location - wireless geolocation - latitude/longitude
+Geolocalización - wifi locaation - wireless access point geolocation 
 
 
 
