@@ -37,7 +37,12 @@ def title_ascii():
 	print ""	
 	print " [i] The BSSID Geolocation is based in a database with about 34M + of records."
 	print " [i] Some BSSIDs may not be on the database"
-
+	print "     --------------------------------------"
+	print console_colors.RED+" [!] This script DOES NOT promote or encourage any illegal activities. "+ console_colors.ENDC
+	print console_colors.RED+"     The service providedby this script is meant for EDUCATIONAL PURPOSE only."+ console_colors.ENDC
+	print console_colors.RED+"     The creator does not store any information and the database"+ console_colors.ENDC
+	print console_colors.RED+"     is from an external person."+ console_colors.ENDC
+	print "     --------------------------------------"
 title_ascii()
 
 if (len(sys.argv) <= 1) or ("--h" in sys.argv) or ("-h" in sys.argv) :
@@ -84,21 +89,21 @@ else:
 		json_pars = json.loads(resp)
 		#Comprobar si la respuesta HTTP es 200 OK // Check if the HTTP response is 200 OK
 		array_request=json_pars["result"]
-		request_data = json.dumps(array_request, sort_keys=True)
+		request_data = json.dumps(array_request)
 		if (request_data == "200"):
 			if (ver == "1.2"): 
 				array_location = json_pars["data"]["location"]
-				location_data = json.dumps(array_location, sort_keys=True)
+				location_data = json.dumps(array_location)
 			array_latitude = json_pars["data"]["lat"]
 			array_range = json_pars["data"]["range"]
 			array_longitude = json_pars["data"]["lon"]
 			array_time = json_pars["data"]["time"]
 
 			#Datos extraidos del array // Extracted array data
-			latitude_data = json.dumps(array_latitude, sort_keys=True)
-			range_data = json.dumps(array_range, sort_keys=True)
-			longitude_data = json.dumps(array_longitude, sort_keys=True)
-			time_data = json.dumps(array_time, sort_keys=True)
+			latitude_data = json.dumps(array_latitude)
+			range_data = json.dumps(array_range)
+			longitude_data = json.dumps(array_longitude)
+			time_data = json.dumps(array_time)
 
 			print console_colors.OKYELLOW + " [#] Extracted Data:"
 			if (ver == "1.2"): 		
