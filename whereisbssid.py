@@ -7,7 +7,7 @@ import requests
 import json
 import re
 
-# Version 0.2.1
+# Version 0.8
 # Written by: Adrián Fernández --> (@adrianfa5)
 # Contact email: adrifarnal@gmail.com
 
@@ -47,12 +47,12 @@ title_ascii()
 
 if (len(sys.argv) <= 1) or ("--h" in sys.argv) or ("-h" in sys.argv) :
 	print console_colors.WARNING+"    [!] Options to use:"+console_colors.ENDC
-	print console_colors.WARNING+"    	  --h Show this help menu"+console_colors.ENDC
-	print console_colors.WARNING+"    	  --M BSSID (The MAC Address From the Access Point)"+console_colors.ENDC
-	print console_colors.WARNING+"    	  --L Show Location"+console_colors.ENDC
+	print console_colors.WARNING+"    	  -h Show this help menu"+console_colors.ENDC
+	print console_colors.WARNING+"    	  -M BSSID (The MAC Address From the Access Point)"+console_colors.ENDC
+	print console_colors.WARNING+"    	  -L Show Location"+console_colors.ENDC
 	print console_colors.WARNING+"    [!] Examples:"+console_colors.ENDC
-	print console_colors.WARNING+"    	  # python whereisbssid.py --M 00:11:22:DD:EE:FF"+console_colors.ENDC
-	print console_colors.WARNING+"    	  # python whereisbssid.py --M 00:11:22:DD:EE:FF --L"+console_colors.ENDC
+	print console_colors.WARNING+"    	  # python whereisbssid.py -M 00:11:22:DD:EE:FF"+console_colors.ENDC
+	print console_colors.WARNING+"    	  # python whereisbssid.py -M 00:11:22:DD:EE:FF -L"+console_colors.ENDC
 else:
 	location = False
 	bssid = False
@@ -69,12 +69,12 @@ else:
 		quit()
 
 	try:
-		if ("--M" in sys.argv):
+		if ("-M" in sys.argv):
 			print console_colors.OKBLUE+" [-] BSSID --> "+ mac + console_colors.ENDC
 		else:		
 			print console_colors.RED+" [!] Error, you have to put the argument --M and the BSSID"
 			quit()
-		if ("--L" in sys.argv):
+		if ("-L" in sys.argv):
 			ver = "1.2"
 			print console_colors.OKBLUE+" [-] Show Location " + console_colors.ENDC
 		else:
@@ -91,7 +91,7 @@ else:
 		if (request_data == "200"):
 			if (ver == "1.2"): 
 				array_location = json_pars["data"]["location"]
-				location_data = json.dumps(array_location)
+				location_data = json.dumps(array_location,ensure_ascii=False)
 			array_latitude = json_pars["data"]["lat"]
 			array_range = json_pars["data"]["range"]
 			array_longitude = json_pars["data"]["lon"]
@@ -115,4 +115,4 @@ else:
 			print " [i] Don't worry, I love you <3. You can try with another one"
 
 	except:
-		print console_colors.RED+" [!] The server can't reply the request. Check your internet connection or try it later" + console_colors.ENDC	
+		print console_colors.RED+" [!] The server can't reply the request. Check your internet connection or try it later" + console_colors.ENDC
