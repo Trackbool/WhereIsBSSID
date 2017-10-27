@@ -62,17 +62,17 @@ else:
 		if (re.match(regexp, sys.argv[2])) and (len(sys.argv[2]) == 17):
 			mac = sys.argv[2]			
 		else:
-			print console_colors.RED+" [!] Error, you have to put the argument --M and the BSSID"+ console_colors.ENDC
+			print console_colors.RED+" [!] Error, you have to put the argument -M and the BSSID"+ console_colors.ENDC
 			quit()	
 	except:
-		print console_colors.RED+" [!] Invalid Address. Put a valid BSSID next to --M"+ console_colors.ENDC
+		print console_colors.RED+" [!] Invalid Address. Put a valid BSSID next to -M"+ console_colors.ENDC
 		quit()
 
 	try:
 		if ("-M" in sys.argv):
 			print console_colors.OKBLUE+" [-] BSSID --> "+ mac + console_colors.ENDC
 		else:		
-			print console_colors.RED+" [!] Error, you have to put the argument --M and the BSSID"
+			print console_colors.RED+" [!] Error, you have to put the argument -M and the BSSID"
 			quit()
 		if ("-L" in sys.argv):
 			ver = "1.2"
