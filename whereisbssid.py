@@ -7,7 +7,7 @@ import requests
 import json
 import re
 
-# Version 0.8
+# Version 1.0
 # Written by: Adrián Fernández --> (@adrianfa5)
 # Contact email: adrifarnal@gmail.com
 
@@ -26,33 +26,31 @@ class console_colors:
     UNDERLINE = "\033[4m"
 
 def title_ascii():
-	print console_colors.GREEN+" _    _ _                  _____   ______  _____ _____ ___________"+console_colors.ENDC
-	print console_colors.GREEN+"| |  | | |                |_   _|  | ___ \/  ___/  ___|_   _|  _  \ "+console_colors.ENDC
-	print console_colors.GREEN+"| |  | | |__   ___ _ __ ___ | | ___| |_/ /\ `--.\ `--.  | | | | | | "+console_colors.ENDC
-	print console_colors.GREEN+"| |/\| | '_ \ / _ \ '__/ _ \| |/ __| ___ \ `--. \`--. \ | | | | | | "+console_colors.ENDC
-	print console_colors.GREEN+"\  /\  / | | |  __/ | |  __/| |\__ \ |_/ //\__/ /\__/ /_| |_| |/ / "+console_colors.ENDC 
-	print console_colors.GREEN+" \/  \/|_| |_|\___|_|  \___\___/___|____/ \____/\____/ \___/|___/ "+console_colors.ENDC 
-	print console_colors.GREEN+" ---------------------------------------------------------------"+console_colors.ENDC 
-	print console_colors.LIGHTBLUE+"			Written by Adrián Fernández-(@adrianfa5)"+console_colors.ENDC 
-	print ""	
-	print " [i] The BSSID Geolocation is based in a database with about 34M + of records."
-	print " [i] Some BSSIDs may not be on the database"
-	print "     --------------------------------------"
-	print console_colors.RED+" [!] This script DOES NOT promote or encourage any illegal activities. "+ console_colors.ENDC
-	print console_colors.RED+"     The service provided by this script is meant for EDUCATIONAL PURPOSE only."+ console_colors.ENDC
-	print console_colors.RED+"     The creator does not store any information and the database"+ console_colors.ENDC
-	print console_colors.RED+"     is from an external person."+ console_colors.ENDC
-	print "     --------------------------------------"
+	print (console_colors.GREEN+" _    _ _                  _____   ______  _____ _____ ___________"+console_colors.ENDC)
+	print (console_colors.GREEN+"| |  | | |                |_   _|  | ___ \/  ___/  ___|_   _|  _  \ "+console_colors.ENDC)
+	print (console_colors.GREEN+"| |  | | |__   ___ _ __ ___ | | ___| |_/ /\ `--.\ `--.  | | | | | | "+console_colors.ENDC)
+	print (console_colors.GREEN+"| |/\| | '_ \ / _ \ '__/ _ \| |/ __| ___ \ `--. \`--. \ | | | | | | "+console_colors.ENDC)
+	print (console_colors.GREEN+"\  /\  / | | |  __/ | |  __/| |\__ \ |_/ //\__/ /\__/ /_| |_| |/ / "+console_colors.ENDC)
+	print (console_colors.GREEN+" \/  \/|_| |_|\___|_|  \___\___/___|____/ \____/\____/ \___/|___/ "+console_colors.ENDC) 
+	print (console_colors.GREEN+" ---------------------------------------------------------------"+console_colors.ENDC) 
+	print (console_colors.LIGHTBLUE+"		Written by Adrián Fernández Arnal-(@adrianfa5)"+console_colors.ENDC) 
+	print ("")	
+	print (" [i] The BSSID Geolocation is based in a database with about 34M + of records.")
+	print (" [i] Some BSSIDs may not be on the database")
+	print ("     --------------------------------------")
+	print (console_colors.RED+" [!] This script DOES NOT promote or encourage any illegal activities. "+ console_colors.ENDC)
+	print (console_colors.RED+"     The service provided by this script is meant for EDUCATIONAL PURPOSE only."+ console_colors.ENDC)
+	print (console_colors.RED+"     The creator does not store any information and the database"+ console_colors.ENDC)
+	print (console_colors.RED+"     is from an external person."+ console_colors.ENDC)
+	print ("     --------------------------------------")
 title_ascii()
 
 if (len(sys.argv) <= 1) or ("--h" in sys.argv) or ("-h" in sys.argv) :
-	print console_colors.WARNING+"    [!] Options to use:"+console_colors.ENDC
-	print console_colors.WARNING+"    	  -h Show this help menu"+console_colors.ENDC
-	print console_colors.WARNING+"    	  -M BSSID (The MAC Address From the Access Point)"+console_colors.ENDC
-	print console_colors.WARNING+"    	  -L Show Location"+console_colors.ENDC
-	print console_colors.WARNING+"    [!] Examples:"+console_colors.ENDC
-	print console_colors.WARNING+"    	  # python whereisbssid.py -M 00:11:22:DD:EE:FF"+console_colors.ENDC
-	print console_colors.WARNING+"    	  # python whereisbssid.py -M 00:11:22:DD:EE:FF -L"+console_colors.ENDC
+	print (console_colors.WARNING+"    [!] Options to use:"+console_colors.ENDC)
+	print (console_colors.WARNING+"    	  -h Show this help menu"+console_colors.ENDC)
+	print (console_colors.WARNING+"    	  -M BSSID (The MAC Address From the Access Point)"+console_colors.ENDC)
+	print (console_colors.WARNING+"    [!] Examples:"+console_colors.ENDC)
+	print (console_colors.WARNING+"    	  # python whereisbssid.py -M 00:11:22:DD:EE:FF"+console_colors.ENDC)
 else:
 	location = False
 	bssid = False
@@ -62,36 +60,30 @@ else:
 		if (re.match(regexp, sys.argv[2])) and (len(sys.argv[2]) == 17):
 			mac = sys.argv[2]			
 		else:
-			print console_colors.RED+" [!] Error, you have to put the argument -M and the BSSID"+ console_colors.ENDC
+			print (console_colors.RED+" [!] Error, you have to put the argument -M and the BSSID"+ console_colors.ENDC)
 			quit()	
 	except:
-		print console_colors.RED+" [!] Invalid Address. Put a valid BSSID next to -M"+ console_colors.ENDC
+		print (console_colors.RED+" [!] Invalid Address. Put a valid BSSID next to -M"+ console_colors.ENDC)
 		quit()
 
 	try:
 		if ("-M" in sys.argv):
-			print console_colors.OKBLUE+" [-] BSSID --> "+ mac + console_colors.ENDC
+			print (console_colors.OKBLUE+" [-] BSSID --> "+ mac + console_colors.ENDC)
 		else:		
-			print console_colors.RED+" [!] Error, you have to put the argument -M and the BSSID"
+			print (console_colors.RED+" [!] Error, you have to put the argument -M and the BSSID")
 			quit()
-		if ("-L" in sys.argv):
-			ver = "1.2"
-			print console_colors.OKBLUE+" [-] Show Location " + console_colors.ENDC
-		else:
-			ver = "1.1"
 		
-		print console_colors.OKBLUE+" Sending request..."+ console_colors.ENDC
+		print (console_colors.OKBLUE+" Sending request..."+ console_colors.ENDC)
 		#Hacer peticion a la API // Make API request
-		requ = requests.get("https://api.mylnikov.org/geolocation/wifi?v="+ver+"&bssid="+mac)		
+		requ = requests.get("https://api.mylnikov.org/geolocation/wifi?v=1.2&bssid="+mac)		
 		resp = requ.content
 		json_pars = json.loads(resp)
 		#Comprobar si la respuesta HTTP es 200 OK // Check if the HTTP response is 200 OK
 		array_request=json_pars["result"]
 		request_data = json.dumps(array_request)
 		if (request_data == "200"):
-			if (ver == "1.2"): 
-				array_location = json_pars["data"]["location"]
-				location_data = json.dumps(array_location,ensure_ascii=False)
+			array_location = json_pars["data"]["location"]
+			location_data = json.dumps(array_location,ensure_ascii=False)
 			array_latitude = json_pars["data"]["lat"]
 			array_range = json_pars["data"]["range"]
 			array_longitude = json_pars["data"]["lon"]
@@ -103,16 +95,15 @@ else:
 			longitude_data = json.dumps(array_longitude)
 			time_data = json.dumps(array_time)
 
-			print console_colors.OKYELLOW + " [#] Extracted Data:"
-			if (ver == "1.2"): 		
-				print console_colors.GREEN+"   [*] Location: " + location_data + console_colors.ENDC
-			print console_colors.GREEN+"   [*] Latitude: " + latitude_data + console_colors.ENDC
-			print console_colors.GREEN+"   [*] Range: " + range_data + console_colors.ENDC
-			print console_colors.GREEN+"   [*] Longitude: " + longitude_data + console_colors.ENDC
-			print console_colors.GREEN+"   [*] Time: " + time_data + console_colors.ENDC
+			print (console_colors.OKYELLOW + " [#] Extracted Data:")	
+			print (console_colors.GREEN+"   [*] Location: " + location_data + console_colors.ENDC)
+			print (console_colors.GREEN+"   [*] Latitude: " + latitude_data + console_colors.ENDC)
+			print (console_colors.GREEN+"   [*] Range: " + range_data + console_colors.ENDC)
+			print (console_colors.GREEN+"   [*] Longitude: " + longitude_data + console_colors.ENDC)
+			print (console_colors.GREEN+"   [*] Time: " + time_data + console_colors.ENDC)
 		else:
-			print console_colors.RED+" [!] There is no data from this BSSID --> "+mac+console_colors.ENDC
-			print " [i] Don't worry, I love you <3. You can try with another one"
+			print (console_colors.RED+" [!] There is no data from this BSSID --> "+mac+console_colors.ENDC)
+			print (" [i] Don't worry, I love you <3. You can try with another one")
 
 	except:
-		print console_colors.RED+" [!] The server can't reply the request. Check your internet connection or try it later" + console_colors.ENDC
+		print (console_colors.RED+" [!] The server can't reply the request. Check your internet connection or try it later" + console_colors.ENDC)
